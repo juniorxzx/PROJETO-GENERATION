@@ -31,7 +31,7 @@ export class cadastroService {
     async findByGenero(genero: string): Promise<Cadastro[]> {
         return this.cadastroRepository.find({
             where: {
-                genero: ILike(`% ${genero} %`)
+                genero: ILike(`%${genero}%`)
             },
         })
     }
@@ -40,7 +40,7 @@ export class cadastroService {
     async findByNome(nome: string): Promise<Cadastro[]> {
         return this.cadastroRepository.find({
             where: {
-                nome: ILike(`% ${nome} %`)
+                nome: ILike(`%${nome}%`)
             },
         })
     }

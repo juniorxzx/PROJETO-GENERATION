@@ -1,5 +1,6 @@
 import { IsNotEmpty, MaxLength } from "class-validator";
-import { Column, Entity, ManyToMany, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Usuario } from "src/usuario/entities/usuario.entity";
+import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 
 @Entity({name:'tb_cadastro'})
@@ -32,4 +33,8 @@ export class Cadastro{
     @Column({nullable: false, length: 8})
     senha: string
 
+    @OneToOne(() => Usuario, (usuario) => usuario.cadastro)
+    @JoinColumn()
+    usuario: Usuario
+   
 }

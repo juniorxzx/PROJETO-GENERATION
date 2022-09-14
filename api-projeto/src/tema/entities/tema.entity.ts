@@ -15,9 +15,9 @@ export class Tema{
     nome: string
 
 
-    // @OneToMany(() => Postagem, (postagem) => postagem.tema,{
-    //     onDelete: "CASCADE"
-    // })
-    // postagem: Postagem
+    @OneToMany(() => Postagem, (postagem) => postagem.tema,{
+        onDelete: "CASCADE"
+    })
+    postagem: Postagem
 
 }
