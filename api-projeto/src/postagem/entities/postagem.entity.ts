@@ -1,9 +1,11 @@
 import { IsNotEmpty, MaxLength } from "class-validator";
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Tema } from "src/tema/entities/tema.entity";
+import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+
 
 @Entity({name:'tb_postagem'})
 export class Postagem{
-
+   
     @PrimaryGeneratedColumn()
     id: number
     
@@ -15,4 +17,9 @@ export class Postagem{
     @Column()
     imagem: string 
 
+
+    // @ManyToOne(() => Tema, (tema) => tema.postagem,{
+    //     onDelete: "CASCADE"
+    // })
+    // tema: Tema
 }
