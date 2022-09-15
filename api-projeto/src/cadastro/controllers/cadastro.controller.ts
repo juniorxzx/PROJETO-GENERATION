@@ -14,7 +14,9 @@ export class cadastroController {
     @HttpCode(HttpStatus.OK)
     findAll(): Promise<Cadastro[]> {
         return this.service.findAll()
+    
     }
+    
 
     @Get('/:id')
     @HttpCode(HttpStatus.OK)
