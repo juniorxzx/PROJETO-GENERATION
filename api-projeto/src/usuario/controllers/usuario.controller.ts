@@ -2,10 +2,11 @@ import {
     Body, Controller, Delete, Get, HttpCode,
     HttpStatus, Param, ParseIntPipe, Post, Put
 } from "@nestjs/common";
+import { ApiTags } from "@nestjs/swagger";
 import { Usuario } from "../entities/usuario.entity";
 import { usuarioService } from "../services/usuario.service";
 
-
+@ApiTags('Usuario')
 @Controller('/usuario')
 export class usuarioController {
 

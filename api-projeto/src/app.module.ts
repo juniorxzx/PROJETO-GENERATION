@@ -1,3 +1,5 @@
+import { AppService } from './app.service';
+import { AppController } from './app.controller';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Cadastro } from './cadastro/entities/cadastro.entity';
@@ -12,14 +14,25 @@ import { usuarioModule } from './usuario/modules/usuario.module';
 
 @Module({
   imports: [
+    // TypeOrmModule.forRoot({
+    //   type: 'mysql',
+    //   host: 'localhost',
+    //   port: 3306,
+    //   username: 'root',
+    //   password: '',
+    //   database: 'db_projeto',
+    //   entities: [Postagem, Tema, Cadastro, Usuario],
+    //   synchronize: true
+    // }),
     TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: '11072512',
-      database: 'db_projeto',
-      entities: [Postagem, Tema, Cadastro, Usuario],
+      type:'postgres',
+      url: process.env.DATABASE_URL,
+      logging: false,
+      dropSchema: false,
+      ssl:{
+        rejectUnauthorized: false
+      },
+      autoLoadEntities: true,
       synchronize: true
     }),
 postagemModule,
@@ -27,7 +40,7 @@ temaModule,
 cadastroModule,
 usuarioModule
 ],
-controllers: [],
-providers: [],
+controllers: [AppController],
+providers: [AppService],
 })
 export class AppModule {}
