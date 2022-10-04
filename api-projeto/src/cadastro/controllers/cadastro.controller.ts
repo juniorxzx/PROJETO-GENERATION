@@ -2,9 +2,11 @@ import {
     Body, Controller, Delete, Get, HttpCode,
     HttpStatus, Param, ParseIntPipe, Post, Put
 } from "@nestjs/common";
+import { ApiTags } from "@nestjs/swagger";
 import { Cadastro } from "../entities/cadastro.entity";
 import { cadastroService } from "../services/cadastro.service";
 
+@ApiTags('Cadastro')
 @Controller('/cadastro')
 export class cadastroController {
 
