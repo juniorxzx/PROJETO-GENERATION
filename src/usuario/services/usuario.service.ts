@@ -15,7 +15,8 @@ export class usuarioService {
     async findAll(): Promise<Usuario[]> {
         return this.usuarioRepository.find({
             relations: {
-                cadastro: true
+                cadastro: true,
+                postagem: true
             }
         })
     }
@@ -26,7 +27,8 @@ export class usuarioService {
                 id
             },
             relations: {
-                cadastro: true
+                cadastro: true,
+                postagem: true
             }
 
         })
@@ -43,7 +45,8 @@ export class usuarioService {
                 nickname: ILike(`%${nickname}%`)
             },
             relations: {
-                cadastro: true
+                cadastro: true,
+                postagem: true
             }
         })
     }

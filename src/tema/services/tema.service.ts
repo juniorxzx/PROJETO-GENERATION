@@ -14,7 +14,9 @@ export class temaService {
 
     async findAll(): Promise<Tema[]> {
         return this.temaRepository.find({
-
+            relations:{
+                postagem: true
+            }
         })
     }
 
@@ -22,6 +24,9 @@ export class temaService {
         let tema = await this.temaRepository.findOne({
             where: {
                 id
+            },
+            relations:{
+                postagem: true
             }
 
         })
@@ -37,7 +42,9 @@ export class temaService {
             where: {
                 nome: ILike(`% ${nome} %`)
             },
-
+            relations:{
+                postagem: true
+            }
         })
     }
 
